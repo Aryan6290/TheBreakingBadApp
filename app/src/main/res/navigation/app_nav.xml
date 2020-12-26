@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav"
+    app:startDestination="@id/characterFragment">
+
+    <fragment
+
+        android:id="@+id/characterFragment"
+        android:name="com.example.breakingbad.CharacterFragment"
+        android:label="Characters"
+        tools:layout="@layout/fragment_character" />
+    <fragment
+        android:id="@+id/quotesFragment"
+        android:name="com.example.breakingbad.QuotesFragment"
+        android:label="Quotes"
+        tools:layout="@layout/fragment_quotes" />
+    <fragment
+        android:id="@+id/episodesFragment"
+        android:name="com.example.breakingbad.EpisodesFragment"
+        android:label="Episodes"
+        tools:layout="@layout/fragment_episodes" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.breakingbad.AboutFragment"
+        android:label="About the App B!tch"
+        tools:layout="@layout/fragment_about" />
+</navigation>

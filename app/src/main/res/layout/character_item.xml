@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:padding="16dp"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:orientation="vertical">
+    <ImageView
+        android:src="@drawable/face"
+        android:id="@+id/character_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <TextView
+
+        android:id="@+id/character_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:text="Character Name here"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp" />
+    <TextView
+
+        android:id="@+id/actor_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:text="Actor Name here"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
+
+
+
+</LinearLayout>

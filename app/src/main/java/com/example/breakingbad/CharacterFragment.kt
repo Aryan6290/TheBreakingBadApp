@@ -17,13 +17,14 @@ import com.example.breakingbad.Adapter.CharacterAdapter
 import com.example.breakingbad.models.Character
 import com.example.breakingbad.utils.MySingleton
 import org.json.JSONArray
+import org.json.JSONException
 import org.json.JSONObject
 
 class CharacterFragment : Fragment() {
     var count: Int = 0
     lateinit var recyclerView: RecyclerView
     private var mAdapter:CharacterAdapter?=null
-    private var characterList:ArrayList<Character>()
+    private var characterList=ArrayList<Character>()
 
     private var url:String="https://www.breakingbadapi.com/api/characters"
 
@@ -39,14 +40,46 @@ class CharacterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        recyclerView = view.findViewById<RecyclerView>(R.id.character_recyclerview)
+        val verticalLayoutManager = LinearLayoutManager(activity)
+        recyclerView.layoutManager = verticalLayoutManager
+        getData()
     }
     private fun getData(){
+
+        val queue = Volley.newRequestQueue(activity)
         var jsonArrayRequest=JsonArrayRequest(Request.Method.GET,url,null, {
+            for(i in 0 until it.length()){
+                    try{
+                        val characterObject=it.getJSONObject(i)
+                        val name= characterObject.getString("name")
+                        val img= characterObject.getString("img")
+                        val portrayed= characterObject.getString("portrayed")
+                        val birthday= characterObject.getString("birthday")
+                        val occupation= characterObject.getString("occupation")
+                        val nickname= characterObject.getString("nickname")
+                        val status= characterObject.getString("status")
+                        val character=Character(name,img,portrayed,birthday,occupation,nickname,status)
+                        characterList.add(character)
+                    }
+                    catch(e:JSONException){
+                        e.printStackTrace()
+                    }
+
+
+            }
+            mAdapter = CharacterAdapter(characterList)
+// attach adapter
+            view?.findViewById<RecyclerView>(R.id.character_recyclerview)?.adapter =mAdapter
+
+
+            mAdapter?.notifyDataSetChanged()
 
 
         }, {
 
         })
+        queue.add(jsonArrayRequest)
     }
 }
 

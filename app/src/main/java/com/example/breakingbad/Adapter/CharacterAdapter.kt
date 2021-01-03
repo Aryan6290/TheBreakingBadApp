@@ -16,11 +16,11 @@ class CharacterAdapter(val characterList: ArrayList<Character>) : RecyclerView.A
         val view:View= LayoutInflater.from(parent.context).inflate(R.layout.character_item,parent,false)
 
         return  CharacterHolder(view)
-        TODO("Not yet implemented")
+
     }
 
     override fun onBindViewHolder(holder: CharacterHolder, position: Int) {
-        TODO("Not yet implemented")
+
         val item=characterList[position]
         holder.name.text=item.name
         holder.name2.text=item.potrayed

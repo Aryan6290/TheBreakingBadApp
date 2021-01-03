@@ -7,6 +7,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:background="#000"
         android:id="@+id/character_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

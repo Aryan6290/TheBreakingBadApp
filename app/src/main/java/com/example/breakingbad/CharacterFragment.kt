@@ -20,11 +20,11 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
-class CharacterFragment : Fragment() {
+public class CharacterFragment : Fragment() {
     var count: Int = 0
     lateinit var recyclerView: RecyclerView
     private var mAdapter:CharacterAdapter?=null
-    private var characterList=ArrayList<Character>()
+    public var characterList=ArrayList<Character>()
 
     private var url:String="https://www.breakingbadapi.com/api/characters"
 
@@ -44,6 +44,7 @@ class CharacterFragment : Fragment() {
         val verticalLayoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = verticalLayoutManager
         getData()
+
     }
     private fun getData(){
 
@@ -56,7 +57,17 @@ class CharacterFragment : Fragment() {
                         val img= characterObject.getString("img")
                         val portrayed= characterObject.getString("portrayed")
                         val birthday= characterObject.getString("birthday")
-                        val occupation= characterObject.getString("occupation")
+                        val occupationArray= characterObject.getJSONArray("occupation")
+                        var occupation:String=""
+                        for (i in 0 until occupationArray.length()){
+                            if(i!=occupationArray.length()-1){
+                                occupation+=(occupationArray[i].toString() +","+"\n")
+                            }
+                            else
+                                occupation+=occupationArray[i]
+
+
+                        }
                         val nickname= characterObject.getString("nickname")
                         val status= characterObject.getString("status")
                         val character=Character(name,img,portrayed,birthday,occupation,nickname,status)

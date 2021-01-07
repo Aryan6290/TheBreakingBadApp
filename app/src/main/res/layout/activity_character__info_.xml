@@ -274,7 +274,8 @@
                             android:textSize="16sp" />
 
                         <TextView
-                            android:paddingLeft="100dp"
+                            android:lineSpacingExtra="5dp"
+                            android:paddingLeft="130dp"
                             android:maxLines="100"
                             android:id="@+id/occupation"
                             android:layout_width="fill_parent"

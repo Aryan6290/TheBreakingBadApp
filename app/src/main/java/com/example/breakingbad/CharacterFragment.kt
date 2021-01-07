@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,11 +21,12 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
-public class CharacterFragment : Fragment() {
+class CharacterFragment : Fragment() {
     var count: Int = 0
     lateinit var recyclerView: RecyclerView
+    lateinit var progressBar: ProgressBar
     private var mAdapter:CharacterAdapter?=null
-    public var characterList=ArrayList<Character>()
+    var characterList=ArrayList<Character>()
 
     private var url:String="https://www.breakingbadapi.com/api/characters"
 
@@ -40,6 +42,8 @@ public class CharacterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        progressBar=view.findViewById(R.id.progressBar)
+        progressBar.visibility=View.VISIBLE
         recyclerView = view.findViewById<RecyclerView>(R.id.character_recyclerview)
         val verticalLayoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = verticalLayoutManager
@@ -85,6 +89,7 @@ public class CharacterFragment : Fragment() {
 
 
             mAdapter?.notifyDataSetChanged()
+            progressBar.visibility=View.GONE
 
 
         }, {

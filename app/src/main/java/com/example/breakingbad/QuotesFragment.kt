@@ -5,28 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.Volley
+import com.example.breakingbad.Adapter.CharacterAdapter
+import com.example.breakingbad.models.Character
+import com.example.breakingbad.models.Quotes
+import org.json.JSONException
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [QuotesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class QuotesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
+    lateinit var recyclerView: RecyclerView
+   var quotesList=ArrayList<Quotes>()
+    private val url: String ="https://www.breakingbadapi.com/api/quotes"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -37,23 +33,46 @@ class QuotesFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_quotes, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment QuotesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            QuotesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView=view.findViewById(R.id.quotesRV)
+        val verticalLayoutManager = LinearLayoutManager(activity)
+        recyclerView.layoutManager = verticalLayoutManager
+        getData()
+    }
+
+    private fun getData() {
+
+        val queue = Volley.newRequestQueue(activity)
+        var jsonArrayRequest= JsonArrayRequest(Request.Method.GET,url,null, {
+            for(i in 0 until it.length()){
+                try{
+                  val quotesObject=it.getJSONObject(i)
+                  val message=quotesObject.getString("quote")
+                  val author=quotesObject.getString("author")
+
+                    val quote:Quotes= Quotes(message,author)
+                    quotesList.add(quote)
+
                 }
+                catch(e: JSONException){
+                    e.printStackTrace()
+                }
+
+
             }
+            mAdapter = CharacterAdapter(characterList)
+// attach adapter
+            view?.findViewById<RecyclerView>(R.id.character_recyclerview)?.adapter =mAdapter
+
+
+            mAdapter?.notifyDataSetChanged()
+
+
+
+        }, {
+
+        })
+        queue.add(jsonArrayRequest)
     }
 }

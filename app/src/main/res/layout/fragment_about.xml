@@ -2,18 +2,87 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-
+    android:background="#000"
     tools:context=".AboutFragment">
 
-    <TextView
-        style="@style/TextAppearance.AppCompat.Title"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:id="@+id/textView3"
+    <ImageView
+
+        android:src="@drawable/background_about"
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ABOUT THE APP BITCH" />
+        android:layout_height="150dp"/>
+    <ImageView
+        android:layout_marginTop="-20dp"
+
+        android:id="@+id/github_link"
+        android:layout_gravity="center"
+        android:src="@drawable/github"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"/>
+    <TextView
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:textSize="20sp"
+        style="@style/TextAppearance.AppCompat"
+        android:textColor="#FFF"
+        android:text="The BreakingBad App"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:textSize="14sp"
+        style="@style/TextAppearance.AppCompat"
+        android:textColor="#FFF"
+        android:text="An app for the Greatest show of all time!"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:text="Breaking Bad is an American neo-Western crime drama television series created and produced by Vince Gilligan. The show aired on AMC from January 20, 2008, to September 29, 2013, consisting of five seasons for a total of 62 episodes. It was set and filmed in Albuquerque, New Mexico, and tells the story of Walter White (Bryan Cranston), an underpaid and dispirited high school chemistry teacher who is struggling with a recent diagnosis of stage-three lung cancer. White turns to a life of crime, partnering with his former student Jesse Pinkman (Aaron Paul), by producing and distributing crystallized methamphetamine to secure his family's financial future before he dies, while navigating the dangers of the criminal underworld.
+\n
+"
+            android:textColor="#757575"
+            android:textSize="14sp" />
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
 
 
 

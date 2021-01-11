@@ -1,3 +1,3 @@
 package com.example.breakingbad.models
 
-class Episode(var name: String, var season: String, var episode: String, var airingDate: String)
+class Episode(var title: String, var url: String, var thumbnail: String)

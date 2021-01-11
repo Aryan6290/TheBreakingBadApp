@@ -20,8 +20,8 @@
 
     <LinearLayout
 
-        android:paddingTop="100dp"
-        android:paddingBottom="100dp"
+        android:paddingTop="50dp"
+        android:paddingBottom="50dp"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

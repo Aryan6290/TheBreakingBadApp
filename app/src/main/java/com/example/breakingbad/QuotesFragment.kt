@@ -23,7 +23,7 @@ class QuotesFragment : Fragment() {
     lateinit var qProgressBar: ProgressBar
     private var mAdapter:QuoteAdapter?=null
    var quotesList=ArrayList<Quotes>()
-    private val url: String ="https://www.breakingbadapi.com/api/quotes"
+    private val url: String ="https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=100&playlistId=PL4XYugONL7lZRsu295MZDZ5Lm6WWsC76E&key=AIzaSyBnqQgi5SAoaSqfsmXWOrCwE89sOkp0ypI"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

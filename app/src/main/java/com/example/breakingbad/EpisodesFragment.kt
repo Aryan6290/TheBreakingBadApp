@@ -1,6 +1,7 @@
 package com.example.breakingbad
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.breakingbad.Adapter.EpisodeAdapter
 import com.example.breakingbad.Adapter.QuoteAdapter
 import com.example.breakingbad.models.Episode
 import com.example.breakingbad.models.Quotes
@@ -21,9 +23,9 @@ import org.json.JSONException
 class EpisodesFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
     lateinit var qProgressBar: ProgressBar
-    private var mAdapter: QuoteAdapter?=null
+    private var mAdapter: EpisodeAdapter?=null
     var episodeList=ArrayList<Episode>()
-    private val url: String ="https://www.breakingbadapi.com/api/quotes"
+    private val url: String ="https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=100&playlistId=PL4XYugONL7lZRsu295MZDZ5Lm6WWsC76E&key=AIzaSyBnqQgi5SAoaSqfsmXWOrCwE89sOkp0ypI"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +43,10 @@ class EpisodesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView=view.findViewById(R.id.quotesRV)
+        recyclerView=view.findViewById(R.id.episodeRV)
         val verticalLayoutManager = LinearLayoutManager(activity)
+        qProgressBar=view.findViewById(R.id.progressBar3)
+        qProgressBar.visibility=View.VISIBLE
         recyclerView.layoutManager = verticalLayoutManager
         getData()
     }
@@ -53,20 +57,23 @@ class EpisodesFragment : Fragment() {
             var jsonArray=it.getJSONArray("items")
 
 
+
             for(i in 0 until jsonArray.length()){
                 try{
+
                     var item=jsonArray.getJSONObject(i)
-                    var snippets=item.getJSONObject("snippets")
+                    var snippets=item.getJSONObject("snippet")
                     var title=snippets.getString("title")
-                    var thumbnails=item.getJSONObject("thumbnails")
-                    var medium=thumbnails.getJSONObject("medium")
-                    var imageurl=medium.getString("url")
+                    var thumbnails=snippets.getJSONObject("thumbnails")
+                    var highres=thumbnails.getJSONObject("maxres")
+                    var imageurl=highres.getString("url")
 
                     var resourceId=snippets.getJSONObject("resourceId")
                     var url=resourceId.getString("videoId")
 
                     var episode=Episode(title,url,imageurl)
                     episodeList.add(episode)
+                    Log.i("JSONPROCESS","$imageurl")
 
 
 
@@ -78,9 +85,11 @@ class EpisodesFragment : Fragment() {
 
 
             }
-//            mAdapter = QuoteAdapter(episodeList)
+            Log.i("JSONPROCESS2","$jsonArray")
+
+            mAdapter = EpisodeAdapter(episodeList)
 // attach adapter
-            view?.findViewById<RecyclerView>(R.id.quotesRV)?.adapter =mAdapter
+            view?.findViewById<RecyclerView>(R.id.episodeRV)?.adapter =mAdapter
 
 
             mAdapter?.notifyDataSetChanged()

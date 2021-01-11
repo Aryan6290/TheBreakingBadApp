@@ -13,4 +13,11 @@
        android:id="@+id/episodeRV"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"/>
+
+    <ProgressBar
+        android:layout_gravity="center"
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
 </FrameLayout>

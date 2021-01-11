@@ -58,6 +58,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         app:labelVisibilityMode="labeled"
+        android:backgroundTint="#000"
 
         app:menu="@menu/bottom_menu"
         android:id="@+id/bottom_nav"

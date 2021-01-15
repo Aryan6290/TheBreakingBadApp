@@ -8,14 +8,9 @@
     android:background="#000"
     tools:context=".AboutFragment">
 
-    <ImageView
 
-        android:src="@drawable/background"
-
-        android:layout_width="match_parent"
-        android:layout_height="150dp"/>
     <ImageView
-        android:layout_marginTop="-20dp"
+        android:layout_marginTop="20dp"
 
         android:id="@+id/github_link"
         android:layout_gravity="center"

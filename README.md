@@ -18,8 +18,12 @@
 - Volley
 - Glide
 
-#Screenshots :
-[<img src="image.png" width="250"/>](screenshots/ss1.png)
+# Screenshots :  
+<p align="center">
+  <img src="screenshots/ss1.png" width="256" height="455">
+  <img src="screenshots/ss2.png" width="256" height="455">
+  <img src="screenshots/ss3.png" width="256" height="455">
+</p>
 
 # How to use it?
 ### Clone the repo , open it in Android Studio and try it out in your Physical Device or Emulator.

@@ -20,9 +20,9 @@
 
 # Screenshots :  
 <p align="center">
-  <img src="screenshots/ss1.png" width="256" height="455">
-  <img src="screenshots/ss2.png" width="256" height="455">
-  <img src="screenshots/ss3.png" width="256" height="455">
+  <img src="screenshots/ss1.png" width="256" height="455">  
+  <img src="screenshots/ss2.png" width="256" height="455">  
+  <img src="screenshots/ss3.png" width="256" height="455">  
 </p>
 
 # How to use it?

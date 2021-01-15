@@ -9,12 +9,17 @@
 - See clips from the Official Breaking Bad Youtube Channel.
 - Can hear 'My baby blue' running in the background(can be toggled off and on.)
 
+
+
 ### Uses :
 
 - Bottom Navigation Sheet
 - Fragments
 - Volley
 - Glide
+
+#Screenshots :
+![image1](screenshots/ss1.png)
 
 # How to use it?
 ### Clone the repo , open it in Android Studio and try it out in your Physical Device or Emulator.

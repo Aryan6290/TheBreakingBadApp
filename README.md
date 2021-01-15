@@ -19,7 +19,7 @@
 - Glide
 
 #Screenshots :
-![image1](screenshots/ss1.png = 250x)
+![image1](screenshots/ss1.png=250x)
 
 # How to use it?
 ### Clone the repo , open it in Android Studio and try it out in your Physical Device or Emulator.

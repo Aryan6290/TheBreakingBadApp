@@ -10,7 +10,7 @@
 
     <ImageView
 
-        android:src="@drawable/background_about"
+        android:src="@drawable/background"
 
         android:layout_width="match_parent"
         android:layout_height="150dp"/>

@@ -2,6 +2,7 @@ package com.example.breakingbad.screens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -15,14 +16,19 @@ class Character_Info_Activity : AppCompatActivity() {
         setContentView(R.layout.activity_character__info_)
 
         val intent=intent
+        for(i in 0 until 20){
+            Log.i("hello world","woohooo")
+        }
         val name: String? = intent.getStringExtra("name")
         val url: String? = intent.getStringExtra("url")
+
         val nickname: String? = intent.getStringExtra("nickname")
         val status: String? = intent.getStringExtra("status")
         val birthday: String? = intent.getStringExtra("birthday")
         val portrayed: String? = intent.getStringExtra("potrayed")
         val occupation: String? = intent.getStringExtra("occupation")
         supportActionBar?.title = "$name"
+
 
         findViewById<TextView>(R.id.name).text=name
         findViewById<TextView>(R.id.nickname).text=nickname

@@ -20,9 +20,9 @@
 
 # Screenshots :  
 
-  <img src="screenshots/ss1.png" width="256" height="455">&nbsp;&nbsp;
-  <img src="screenshots/ss2.png" width="256" height="455">&nbsp;&nbsp;
-  <img src="screenshots/ss3.png" width="256" height="455">&nbsp;&nbsp;
+  <img src="screenshots/ss1.png" width="256" height="455">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/ss2.png" width="256" height="455">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="screenshots/ss3.png" width="256" height="455">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 # How to use it?
